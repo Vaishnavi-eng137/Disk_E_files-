@@ -1,0 +1,35 @@
+.red{
+    background-color: red;
+    width:20%;
+    height: 20px;
+    /* margin-bottom: 50px; */
+}
+.pink{
+    background-color:pink;
+    width:20%;
+    height: 20px;
+    /* margin-bottom: 50px; */
+}
+.purple{
+    background-color:purple;
+    width:20%;
+    height: 20px;
+    /* margin-bottom: 50px; */
+}
+.violet{
+    background-color:violet;
+    width:20%;
+    height: 20px;
+    /* margin-bottom: 50px; */
+}
+.color{
+    display:inline-flex; 
+}
+.centre{
+    height: 200px;
+  width: 200px;
+  margin:auto;
+  /* background-color: #bbb; */
+  border-radius: 50%;
+  margin-top: 50px;
+}

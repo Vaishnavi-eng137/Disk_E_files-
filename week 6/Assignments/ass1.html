@@ -1,0 +1,108 @@
+<!-- //Use the below Ajax syntax to load the data of the cities (cities.json)
+ $.ajax({ url: "https://api.jsonbin.io/b/5ddb7fe5040d843991f8a4e5",
+headers: {"secret-key": "$2b$10$u3A2D8i3xZI9s1Bq/YihAuje8T/nq4C0ulejX8TgqV2OCY1rijESi"},
+success: function(response){ console.log("done"); } });
+
+//Load the data and then write a Javascript function that takes a letter and finds all the cities that starts with that letter. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CITIES</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <!-- <div>Get the cities</div> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-5 offset-4 bg-primary text-dark rounded">
+          <input type="search" id="searchbar" placeholder="search.." />
+      <!-- <button type="button" id="result" class="btn btn-primary">submit</button> -->
+      <div id="search"></div>
+      <div id="listofstates"></div>
+      <ul id="listofcities"></ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+  <script>
+    var cities = [];
+    var states = []
+
+    $(document).ready(function () {
+      // cities.json;
+      states.json
+      $.ajax({
+        url: "https://api.jsonbin.io/b/5ddb7fe5040d843991f8a4e5",
+        headers: {
+          "secret-key":
+            "$2b$10$u3A2D8i3xZI9s1Bq/YihAuje8T/nq4C0ulejX8TgqV2OCY1rijESi",
+        },
+        success: function (response) {
+          // cities = response;
+          states = response
+          // console.log(cities)
+          // console.log(states)
+        },
+      });
+    });
+    function stateData(data){
+      var states = data.map(function(obj){
+        return obj.state;
+      })
+      // console.log(states)
+    
+      var searchvalue = $("#searchbar").val()
+      var searchedstates = states.filter(function(state){
+        if(state[0]=== searchvalue.toUpperCase()){
+          return state
+        }
+      })
+      function removeDups(searchedstates){
+      let unique = {};
+      searchedstates.forEach(function(i) {
+      if(!unique[i]) {
+      unique[i] = true;
+      }
+      });
+      return Object.keys(unique);
+      }
+       var titems =  removeDups(searchedstates);
+      //  $("#titems").text("States"+"are"+titems.join(','))
+    console.log(titems)
+        titems.forEach((element) => {
+          $("#listofstates").text("States"+"are"+" " +titems.join(','))
+        }
+        
+        
+        )
+
+        data.forEach((fulldata)=>{
+          console.log(fulldata)
+          titems.forEach((stateName)=>{
+            console.log(stateName)
+            if(fulldata.state===stateName){
+              console.log(fulldata)
+              
+              $('#listofcities').append('<li>' + fulldata.name + '</li>')
+        }
+      })
+    })
+  }
+       
+    $("input").keyup(function () {
+      stateData(states)
+    });
+
+
+
+
+    // $("input").keyup(function () {
+    //   console.log("hhh");
+    //   formatData(cities);
+    // });
+
+    // $("#result").on("click",cities);
+  </script>
+</html>

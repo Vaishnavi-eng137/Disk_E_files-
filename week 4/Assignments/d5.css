@@ -1,0 +1,13 @@
+
+button{
+    display: inline-block;
+}
+ 
+.green-white{
+    border:2px solid #000000;
+    background-color: green;
+    color:white;
+}
+p{
+font-size:20px;
+}

@@ -1,0 +1,32 @@
+#form1{
+    background-color:skyblue;
+    border: 2px solid blue;
+    display: center;
+    height:350px;
+    width: 400px;
+    margin: auto;
+}
+ /* input {
+    margin:auto;
+    display: grid;
+} */
+label{
+    display:grid;
+    margin: 40px;
+    margin-bottom: auto;
+    /* height:30px; */
+    /* width:fit-content; */
+    size:30rem;
+}
+#get{
+    margin-top:40px;
+    margin-left:40px;
+    width:60px;
+}
+#pot{
+    text-align: center;
+}
+input{
+    height:30px;
+}
+
